@@ -5,14 +5,13 @@
 // @description  复制 Notion Page 内容为标准 Markdown 文本。
 // @description:zh-CN  复制 Notion Page 内容为标准 Markdown 文本。
 // @description:en Copy Notion Page Content AS Markdown.
-// @namespace https://github.com/Seven-Steven/tampermonkey-scripts/blob/main/copy-notion-page-content-as-markdown
-// @version      0.1.1
+// @namespace    https://blog.diqigan.cn
+// @version      0.1.2
+// @license MIT
 // @author       Seven
 // @match        *://www.notion.so/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=notion.so
 // @grant        GM_setClipboard
-// @supportURL https://github.com/Seven-Steven/tampermonkey-scripts/issues
-// @license MIT
 // ==/UserScript==
 
 (function () {
@@ -108,8 +107,9 @@
     selection.removeAllRanges();
     selection.addRange(range);
 
-    await sleep(500);
+    await sleep(300);
     document.execCommand('copy');
+    await sleep(200);
     selection.removeAllRanges();
   }
 
