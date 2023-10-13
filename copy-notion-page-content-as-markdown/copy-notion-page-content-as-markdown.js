@@ -6,7 +6,7 @@
 // @description:zh-CN  复制 Notion Page 内容为标准 Markdown 文本。
 // @description:en Copy Notion Page Content AS Markdown.
 // @namespace    https://github.com/Seven-Steven/tampermonkey-scripts/tree/main/copy-notion-page-content-as-markdown
-// @version      0.2
+// @version      0.2.1
 // @license MIT
 // @author       Seven
 // @match        *://www.notion.so/*
@@ -22,17 +22,13 @@
    * 初始化动作
    */
   function init() {
-    injectActions();
-  }
-
-  function injectActions() {
     window.addEventListener('copy', fixNotionMarkdownInClipboard);
   }
 
   /**
    * 修正剪切板中 markdown 的格式
    */
-  function fixNotionMarkdownInClipboard() {
+  function fixNotionMarkdownInClipboard(event) {
     navigator.clipboard.readText().then(text => {
       const markdown = fixMarkdownFormat(text);
       navigator.clipboard.writeText(markdown).then(() => {
