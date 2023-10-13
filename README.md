@@ -3,6 +3,7 @@
 ## 前置信息
 
 - [篡改猴](https://www.tampermonkey.net/) | [Doc](https://www.tampermonkey.net/documentation.php)
+- 篡改猴安装： [谷歌应用市场](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) | [MicroSoft Edge 应用市场](https://microsoftedge.microsoft.com/addons/detail/iikmkjmpaadaobahmlepeloendndfphd)
 - [GreasyFork](https://greasyfork.org/) 篡改猴脚本市场
 
 ## TOC
