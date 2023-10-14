@@ -10,15 +10,15 @@
 - 删除有 Caption 的图片后面多余的 Caption 文本
   - 修复前：
 
-    ```text
-    ![Caption](https://example.com/picture.png)
+      ```text
+      ![Caption](https://example.com/picture.png)
 
-    Caption
-    ```
+      Caption
+      ```
 
   - 修复后：
 
-    ```text
-    ![Caption](https://example.com/picture.png)
+      ```text
+      ![Caption](https://example.com/picture.png)
 
-    ```
+      ```

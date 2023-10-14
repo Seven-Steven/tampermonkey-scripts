@@ -8,5 +8,6 @@
 
 ## TOC
 
-- [复制 Notion Page 内容为 Markdown 文本](./copy-notion-page-content-as-markdown/)
 - [外链自动跳转](./external-link-auto-jump/)
+- [修复 Notion Page Content 复制为 Markdown 后的格式错乱问题](./fix-markdown-format-of-notion-page/)
+- [复制 Notion Page 内容为 Markdown 文本](./copy-notion-page-content-as-markdown/)
