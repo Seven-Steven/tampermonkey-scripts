@@ -9,7 +9,7 @@
 // @description  一键复制 Notion 页面内容为标准 Markdown 格式。
 // @description:zh-CN  一键复制 Notion 页面内容为标准 Markdown 格式。
 // @description:en Copy Notion Page Content AS Markdown.
-// @version      2.0
+// @version      2.1
 // @license MIT
 // @author       Seven
 // @homepage https://blog.diqigan.cn
@@ -169,9 +169,8 @@
     }
 
     // 给没有 Caption 的图片添加默认 ALT 文字
-    markdown = markdown.replaceAll(/\!(http.*\.\w+)/g, (match, group1) => {
-      const processedText = decodeURIComponent(group1);
-      return `![picture](${processedText})`;
+    markdown = markdown.replaceAll(/^!(http\S+)$/gm, (match, imgUrl) => {
+      return `![picture](${imgUrl})`;
     });
     // 给有 Caption 的图片去除多余文字
     const captionRegex = /(\!\[(?<title>.+?)\]\(.*?\)\s*)\k<title>\s*/g;

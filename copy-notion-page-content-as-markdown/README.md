@@ -42,6 +42,11 @@
 - 先给 `window` 追加一个类型为 `copy` 的 `EventListener`，事件触发时，读取剪切板内容并修正 Markdown 格式；
 - 往页面注入一个“复制”按钮，用户点击按钮时，自动选中 Notion 页面内容并触发 `copy` 事件；
 
+## TODO
+
+- [ ] 修正 Page Content 选区缺失最后一个 DOM 的问题；
+- [ ] “复制”按钮定位跟随 Page Content 移动；
+
 ## 参考资料
 
 - [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event) | [Events](https://developer.mozilla.org/zh-CN/docs/Web/Events) | [DOM-Level-3-Events](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow) | [JavaScript 事件顺序](https://www.quirksmode.org/js/events_order.html#link4)  JS 中的事件接口、事件类型、以及事件执行顺序。
