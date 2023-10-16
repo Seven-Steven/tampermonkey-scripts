@@ -44,7 +44,7 @@
 
 ## TODO
 
-- [ ] 修正 Page Content 选区缺失最后一个 DOM 的问题；
+- [x] 修正 Page Content 选区缺失最后一个 DOM 的问题；
 - [ ] “复制”按钮定位跟随 Page Content 移动；
 
 ## 参考资料

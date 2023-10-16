@@ -9,7 +9,7 @@
 // @description  一键复制 Notion 页面内容为标准 Markdown 格式。
 // @description:zh-CN  一键复制 Notion 页面内容为标准 Markdown 格式。
 // @description:en Copy Notion Page Content AS Markdown.
-// @version      2.1
+// @version      2.2
 // @license MIT
 // @author       Seven
 // @homepage https://blog.diqigan.cn
@@ -223,31 +223,25 @@
     const selection = window.getSelection();
     selection.removeAllRanges();
     const pageContent = document.querySelector(DOM_SELECTOR_NOTION_PAGE_CONTENT_COMMON);
+    if (!pageContent) {
+      console.error("No Notion Page Content on Current Page.");
+      return;
+    }
     const range = new Range();
-    //  方法一
-    // range.setStartBefore(pageContent.firstChild);
-    // range.setEndAfter(pageContent.lastChild);
 
-    // 方法二
-    // range.selectNodeContents(pageContent);
-
-    // 方法三
-    // range.selectNode(pageContent);
-
-    const contentParent = pageContent.parentNode;
-    const contentNextUncle = contentParent.nextElementSibling;
-    range.setStart(contentParent, 0);
-    // range.setEndAfter(contentParent);
-    range.setEnd(contentNextUncle, 0);
+    const contentNextUncle = findNextElement(pageContent);
+    range.setStart(pageContent, 0);
+    if (contentNextUncle) {
+      range.setEnd(contentNextUncle, 0);
+    } else {
+      range.setEndAfter(pageContent.lastChild);
+    }
 
     selection.addRange(range);
-    // 方法四
-    // selection.selectAllChildren(pageContent);
-    // 方法五
-    // selection.selectAllChildren(pageContent.parentNode)
 
     // console.log('childrenNodeCount', pageContent.childElementCount, pageContent.childNodes.length);
     // Array.from(pageContent.childNodes).forEach(e => console.log(selection.containsNode(e)));
+
     setTimeout(() => {
       document.execCommand('copy');
       selection.removeAllRanges();
@@ -255,8 +249,20 @@
   }
 
   /**
- * 在页面显示提示信息
- */
+   * 查找指定 DOM 的下一个元素
+   * @param {Node} node DOM
+   * @returns 指定 DOM 的下一个元素
+   */
+  function findNextElement(node) {
+    while (node.nextSibling === null) {
+      node = node.parentNode;
+    }
+    return node.nextSibling;
+  }
+
+  /**
+   * 在页面显示提示信息
+   */
   function showMessage(message) {
     const toast = document.createElement('div');
     toast.style.position = 'fixed';
