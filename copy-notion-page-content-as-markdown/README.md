@@ -4,7 +4,40 @@
 
 一键复制 Notion 页面内容为标准 Markdown 格式。
 
-## 分析
+## 功能
+
+- [x] 修复 Notion Page Content 复制为 Markdown 后的格式错乱问题。
+
+  包含以下内容：
+
+  - 为没有 Caption 的图片添加默认的 alt 文本
+
+    - 修复前：`!https://example.com/picture.png`
+
+    - 修复后：`![picture](https://example.com/picture.png)`
+
+  - 删除有 Caption 的图片后面多余的 Caption 文本
+    - 修复前：
+
+        ```text
+        ![Caption](https://example.com/picture.png)
+
+        Caption
+        ```
+
+    - 修复后：
+
+        ```text
+        ![Caption](https://example.com/picture.png)
+
+        ```
+
+- [x] 修正复制 Notion Page Content 后的 Markdown 格式错乱问题；
+- [x] 添加一键复制功能；
+- [x] 修正 Page Content 选区缺失最后一个 DOM 的问题；
+- [ ] “复制”按钮定位跟随 Page Content 移动；
+
+## 实现
 
 ### 插件装载时机
 
@@ -41,11 +74,6 @@
 
 - 先给 `window` 追加一个类型为 `copy` 的 `EventListener`，事件触发时，读取剪切板内容并修正 Markdown 格式；
 - 往页面注入一个“复制”按钮，用户点击按钮时，自动选中 Notion 页面内容并触发 `copy` 事件；
-
-## TODO
-
-- [x] 修正 Page Content 选区缺失最后一个 DOM 的问题；
-- [ ] “复制”按钮定位跟随 Page Content 移动；
 
 ## 参考资料
 
