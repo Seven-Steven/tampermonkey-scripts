@@ -8,6 +8,6 @@
 
 ## TOC
 
-- [外链自动跳转](./external-link-auto-jump/)
-- [修复 Notion Page Content 复制为 Markdown 后的格式错乱问题](./fix-markdown-format-of-notion-page/)
-- [复制 Notion Page 内容为 Markdown 文本](./copy-notion-page-content-as-markdown/)
+- [外链自动跳转](https://greasyfork.org/zh-CN/scripts/453403-external-link-auto-jump) | [源代码](./external-link-auto-jump/)
+- [一键复制 Notion 页面内容为标准 Markdown 格式](https://greasyfork.org/zh-CN/scripts/477050-copy-notion-page-content-as-markdown) | [源代码](./copy-notion-page-content-as-markdown/)
+- [修复 Notion Page Content 复制为 Markdown 后的格式错乱问题](https://greasyfork.org/zh-CN/scripts/477423-fix-markdown-format-of-notion-page) | [源代码](./fix-markdown-format-of-notion-page/)
